@@ -4,7 +4,9 @@ module TwoFactorAuthentication
       extend ActiveSupport::Concern
 
       included do
-        before_action :handle_two_factor_authentication
+        # don't include it in every controller; it will also be applied to active storage controllers, rendering pictures useless.
+	# instead, include it explicitly 
+        #before_action :handle_two_factor_authentication
       end
 
       private
